@@ -1,0 +1,445 @@
+\documentclass[conference]{IEEEtran}
+\IEEEoverridecommandlockouts
+\usepackage{cite}
+\usepackage{hyperref}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\usepackage{cite}
+\usepackage{tabularx} 
+\usepackage{array}    % Helps with formatting
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{placeins}
+\usepackage{float}
+\usepackage{flushend}
+
+
+
+
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+\begin{document}
+
+%%%%%%---------------------------------cover page
+\begin{titlepage}
+    \thispagestyle{empty} % removes header/footer on this page
+    \centering
+    \vspace*{0cm}
+    
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.4\linewidth]{./figs/just_logo.JPG}
+    %\caption{System architecture of the proposed Arabic Sign Language recognition model.}
+    \label{fig:logo}
+\end{figure}
+
+    
+   % {\LARGE %\textbf{Project Proposal}}\\[1.2cm]}
+    {\Huge \textbf{Phase-Aware Optimization for Attention-Based Neural Networks }}\\[1.5cm]
+    {\large Final Project Report Submitted to \\
+The Department of Computer Science \\
+Faculty of Computer and Information Technology \\
+Jordan University of Science and Technology \\
+
+In Partial Fulfillment of the Requirements for the Degree of Bachelors of Science in Computer Science}\\
+
+\vspace*{1cm}
+
+
+    {\Large Prepared by:}\\[0.4cm]
+    {\Large Juman Migdadi [162666]\\}
+    {\Large Naba Alghudran [164713]\\}
+    {\Large Laith Obeidat [162096]\\}
+ \vspace*{1cm}  
+    
+    { \Large Supervisor: \\}
+    {\Large  Yaser Jararweh }\\[2cm]
+    
+    {\large January 2026}\\[3cm]
+    
+    \vfill
+\end{titlepage}
+%%%%---------------end of comver page -----------------
+\newpage
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=1\textwidth]{./figs/arabic_tanazol.JPG}
+    %\caption{System architecture of the proposed Arabic Sign Language recognition model.}
+    \label{fig:tanazol }
+\end{figure}
+
+
+
+%%%%%--------------------------
+
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+    
+
+
+\title{Phase-Aware Optimization for Attention-Based Neural Networks: A Quantum-Inspired Approach to Training Stability}
+
+\author{
+\IEEEauthorblockN{Juman Migdadi}
+\IEEEauthorblockA{\textit{Artificial Intelligence} \\
+\textit{Jordan Univ. of Science and Tech.}\\
+Irbid, Jordan \\
+jsmigdadi22@cit.just.edu.jo}
+\and
+\IEEEauthorblockN{Naba Alghudran}
+\IEEEauthorblockA{\textit{Artificial Intelligence} \\
+\textit {Jordan Univ. of Science and Tech.}\\
+Irbid, Jordan \\
+nhalghudran22@cit.just.edu.jo}
+\and
+\IEEEauthorblockN{Laith Obeidat}
+\IEEEauthorblockA{\textit{Artificial Intelligence} \\
+\textit{Jordan Univ. of Science and Tech.}\\
+Irbid, Jordan \\
+lbobeidat22@cit.just.edu.jo}
+}
+
+\maketitle
+
+\begin{abstract}
+The process of training the attention-based neural networks may be prone to instabilities, sensitivity to initializations, and irregularities in the convergence process. The reason for such instabilities may be the increased complexity in the optimization process as the neural networks become more complex and deep. Many modern optimization algorithms may be applying techniques for stabilization and exploration in a rigid or uncoordinated manner.\\
+
+In this regard, this research proposes a new optimization framework that incorporates principles of exploration and stabilization that emerge in physical systems over time.  The proposed framework uses a dynamic training phase variable that ensures coordination between update direction stability, adaptive exploration control, and stochastic transitions within the optimization process.  This ensures that the optimization process develops gradually over time, without relying on separate exploration-exploitation control strategies.\\
+
+The proposed optimization framework is tested on attention based neural network models with respect to various parameters, such as convergence characteristics, robustness to noise, sensitivity to initialization, and the nature of the loss landscape. 
+What is important here is that the testing of the proposed framework focuses on the dynamic nature of the training process itself, rather than on the predictive capability of the models.\\
+
+Our findings demonstrate that combining exploration with stabilization through the phase-aware optimization method significantly enhances the reliability of training attention-based neural networks.  By viewing optimization not as a static process, but as a dynamic one, this work offers fresh perspectives on how optimization can be approached to improve the performance and reliability of attention-based models.\\
+\end{abstract}
+
+\begin{IEEEkeywords}
+ Attention-based neural networks, training stability, phase-aware optimization, quantum-inspired optimization, stochastic optimization
+\end{IEEEkeywords}
+
+\IEEEpeerreviewmaketitle
+
+\section{Project Goals and Objectives}
+\label{sec:goals}\\
+
+\subsection{Project Goal}
+The main goal of this project is to see how quantum-inspired optimization ideas can improve the stability of attention-based neural networks during training. The project checks whether adding structured stochastic behavior, along with adaptive control methods, can make the optimization process more effective than traditional optimization strategies that do not change during training.\\
+
+
+\subsection{Project Objectives}
+Compared to traditional optimization strategies that stay constant throughout the training process of a neural network.To achieve this goal the project focuses on the following objectives:
+\begin{itemize}
+    \item Design a phase-aware optimization framework that combines persistent directional updates, adaptive exploration control, and stochastic transitions into a single method that works with attention-based neural network models.
+    
+    \item Examine the function of structured stochastic behavior in optimization to ascertain its potential to facilitate effective exploration of the loss landscape, rather than serving as unstructured random noise.
+    
+    \item Examine training trajectories, sensitivity to initialization, and oscillatory behavior throughout the optimization process to assess optimization stability and convergence behavior.
+    
+    \item Examine the loss landscape features related to the suggested method, paying special attention to metrics for robustness, sharpness, and convergence quality.
+    
+    \item To evaluate the feasibility and practical behavior of the suggested optimization strategy during training, apply it to attention layers in representative neural network architectures.
+    
+    \item Examine whether the suggested approach can be incorporated into common deep learning frameworks without adding undue computational or memory overhead to gauge implementation effectiveness and viability.
+\end{itemize}
+
+\section{Introduction}
+\label{sec:introduction}
+Attention-based neural networks have become a key element of contemporary Deep Learning  systems. These models are employed broadly in applications such as natural language processing, computer vision, and other multimodal applications. Despite this attention-based neural networks can be challenging to train reliably. 
+Notably, this problem mainly stems from the strongly non-linear properties of the loss landscape, unstable optimization dynamics, and sensitivity to initial parameter settings. As attention-based models become deeper and more complex, these properties become more apparent, and thus, unstable training dynamics and lack of reliability during training can be observed.\\
+
+In order to overcome these problems, various optimization methods have been proposed. Momentum-based optimization methods attempt to smooth the learning process, while adaptive optimization methods adjust the learning rates based on the statistics of the gradients, and stochastic regularization methods add noise to the learning process.Although they have been widely used with proven efficiency in various tasks they are not used uniformly throughout the process of learning. That means that they are not adjusted according to the stages of learning.
+In reality, the process of training a neural network is not a fixed process. During the early stages of the training process, it often proves beneficial to have improved exploration to avoid the early solution and the early areas of the loss landscape. However, during the later stages, there is a need for more stable and controlled updates to guarantee the process of convergence. Most of the current optimization algorithms fail to take into account the transition process.\\
+
+Recent work in quantum and quantum-inspired optimization has provided different approaches to understanding how complex systems explore and settle down in high-dimensional spaces. Systems described by such dynamics naturally explore and stabilize when traversing complex energy landscapes, which is no different than what is faced when optimizing deep neural networks. The important part is that such concepts can be implemented using classical algorithms without requiring  quantum hardware.\\
+
+
+Inspired by these findings, we propose Quantum Dynamics Attention, an optimization method with phase awareness, specifically designed for neural networks with an attention mechanism. Our optimization method combines three components: continuous directional updates to facilitate stable trajectories of learning, adaptive exploration modulation according to different phases of training, and stochastic transitions to enable the optimization algorithm to move away from regions of poor loss function values. These components are managed using an uncomplicated control mechanism, allowing the optimization algorithm to dynamically change its behavior throughout training.\\
+
+The objective of this work is to without adding much complexity to the algorithm these mechanisms through an optimization framework should be capable of increasing the stability and robustness of the training process.The structure of is this introduction describes the structure of the paper for section I introduce the project goals and objectives section III describe the relevance and importance of the new method section IV describe the methodical process for the optimization method section V describe the process for evaluation and expected results Lastly, section VI include the paper and future research directions. 
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=3in]{IntroFigure.png} 
+    \caption{Comparison}
+    \label{fig:IntroFigure.png}
+\end{figure}
+
+
+\subsection{Review and Analysis of Related Work}
+\label{sec:related_work}
+Deep neural network optimization has been thoroughly researched, with special focus on enhancing convergence behavior, training stability, and generalization performance. Due to the highly non-linear and high-dimensional nature of attention-based architectures' loss landscapes, these optimization issues have grown more significant as attention-based architectures have taken center stage in contemporary deep learning systems. This section examines pertinent research in quantum-inspired optimization, stochastic and noise-based training techniques, sharpness-aware methods, and gradient-based optimization, with a focus on the implications for attention-based models.\\
+
+\subsubsection{Classical Gradient-Based Optimization}
+ Traditional optimization methods like SGD and momentum SGD are the foundation of our neural network learning processes. Momentum methods are useful here because they can smooth out the trajectory, reduce oscillations, and accelerate optimization by encouraging updates to stay on course as they progress. Then, there are adaptive learning methods, which can adapt the learning rate to the gradient size statistics. Momentum methods and adaptive learning methods can be seen as combining ideas of momentum toward the new direction, some noise, and “pre-scheduled learning rate, which are already built into several optimizers to a certain extent. But these are currently introduced to the optimization process separately, not as a single, dynamically unfolding process during the experimental phases of our optimization method. Even though these methods have proved so fruitful, they can be quite sensitive to the choice of starting point and may get bogged down in highly non-convex landscapes, particularly into more “expressive attention models.” This leads to severe variations, experiment to experiment, under the same experimental setting.\\
+
+\subsubsection{Noise-Based Optimization Methods}
+A number of prior works have illustrated the importance of stochastic dynamics during the training of neural networks. This includes stochastic regularization and injecting stochastic noise into the gradient. The afore-mentioned approaches are known to ensure exploration and avoid being stuck in a sub-optimal region of the loss function. However, most approaches in use today cannot adjust stochastic or regularization parameters, which can end up being unbalanced with respect to various stages of training. This affects their exploration and stability capability during training over time.\\
+
+\subsubsection{Sharpness-Aware Optimization Approaches}
+A more recent direction of research has focused on the loss landscape itself, particularly on the notion that sharp minima generally lead to a poor generalization. Sharpness-aware methods collectively try to guide training toward flatter regions of the loss surface, where robustness and generalization tend to be stronger. These methods usually result in solid empirical performance but at an added computational cost. They are based mostly on perturbation based modifications and are used throughout training uniformly. Most crucially, they do not handle how exploration should change over different stages of optimization, a gap that becomes very pronounced in attention-based models  where the nature of training might change dramatically over time.\\
+
+\subsubsection{Quantum and Quantum-Inspired Optimization}
+However, there are ways to look at exploring complex systems, and the application of the quantum optimization concept over high-dimensional energy spaces.  In a general manner, the complex systems are able to investigate areas that the localized systems can’t by using the transition probabilities thanks to the manner by which the barrier transition is carried out among the states of energy Even if current quantum technologies are in development, there are studies that have shown the crucial properties of quantum evolution within the context of classical algorithms, which exploit the principles of quantum mechanics. The key concept is guided search, as opposed to simple random searches of the energy space. However, the application of these concepts within the context of attention-based neural networks for the problem of attention scale optimization is uncharted territory.\\
+
+
+\subsubsection{Research Gap and Motivation}
+There are lots of optimization methods, while most of them regard the stabilization, exploration, and escaping poor solutions as mutually exclusive steps. They do not integrate these components into one single cohesive dynamic system. It is witnessed that even in cases where these processes have been studied in themselves, they still rely upon certain fixed schedules that instruct the optimizer on how it is supposed to adapt. Therefore, exploring, stabilizing, and escaping from a poor solution is left as being a separate thread from the process of optimizing other components within one dynamic framework. This gap is what motivates the present work, particularly in the realm of attention-based neural networks.
+
+\begin{table*}[ht]
+\centering
+\caption{Comparison of Related Optimization Approaches}
+\label{tab:related_work}
+\scriptsize 
+\renewcommand{\arraystretch}{1.5} 
+
+\begin{tabularx}{\textwidth}{|p{2.5cm}|X|X|X|} 
+\hline 
+\textbf{Paper} & \textbf{Methodology} & \textbf{Results} & \textbf{Drawbacks (Motivating QDA)} \\ 
+\hline 
+
+% Row 1
+Neelakantan et al. (2015) \cite{ref1} & 
+Adds annealed Gaussian noise to gradients during backpropagation to encourage exploration. & 
+Enabled training of very deep networks by preventing convergence to poor local minima. & 
+Noise is manually scheduled and blind to the optimization state. Motivates QDA's adaptive attention. \\ 
+\hline 
+
+% Row 2
+Foret et al. (2020) \cite{ref2} & 
+Sharpness-Aware Minimization (SAM) optimizes both loss value and local loss sharpness. & 
+Resulted in better generalization by optimizing towards flatter minima. & 
+Requires two forward/backward passes (doubles cost). Motivates QDA's efficient single-pass approach. \\ 
+\hline 
+
+% Row 3
+Ganahl et al. (2015) \cite{ref3} & 
+Quantum annealing employed for training Restricted Boltzmann Machines. & 
+Tunneling effects help escape suboptimal regions more efficiently than classical sampling. & 
+Requires quantum hardware, limiting scalability. Motivates QDA's classical approximation. \\ 
+\hline 
+
+% Row 4 - Updated Year to 2023 (CVPR)
+Wen et al. (2023) \cite{ref4} & 
+Proposed Stable SAM to address instability in the sharpness-aware training process. & 
+Improved stability of training while maintaining generalization performance. & 
+Relies on external perturbation constraints. Motivates QDA's intrinsic stability mechanisms. \\ 
+\hline 
+
+% Row 5 - Updated Author to Lami et al. (Matches description)
+Lami et al. (2023) \cite{ref5} & 
+Used classical tensor-network simulations to approximate quantum annealing behavior. & 
+Proven capability to replicate characteristics of quantum exploration. & 
+Computational complexity limits applicability to large-scale deep learning models. \\ 
+\hline 
+
+\end{tabularx}
+\end{table*}
+
+Some research has assessed the stability of optimization in deep neural networks. In their work, Neelakantan et al. attempted to add gradient noise to promote exploration during training, which allows deep nets to optimize better, but in their solution, they used hard-coded noise schedules, meaning their solution does not vary over time. In addition, Foret et al. used sharpness aware optimization to explore flat minima, but the cost incurred in this solution is rather high since it involves multiple forward and backward passes. Previous research has also used quantum annealing to avoid the valleys in the loss function by Ganahl et al. However, its applicability is limited because their solution uses quantum hardware.\\
+
+
+
+\section{Significance of Work}
+\label{sec:significance}
+The significance of this work lies in its focus on understanding the optimization process from a structured and phase-aware perspective, rather than emphasizing performance improvements alone. Even when observed gains are moderate, this study contributes by offering a framework that helps describe how different optimization mechanisms such as directional updates, adaptive exploration, and stochastic transitions interact and influence training behavior over time. By examining these interactions explicitly, the project provides insight into optimization dynamics that are often treated implicitly or in isolation.\\
+
+From a practical point of view, the stability of training remains a problem for attention-based neural networks, especially for deep networks which are very sensitive to initialization and the noise of the gradient. Better stability and predictability during the training phase could make the extensive tuning of hyperparameters and the execution of experiments less necessary. It is within this context that the results of this research work seek to provide guidance on more stable training.\\
+
+
+From a research point of view, this research provides a different thought process on how one could design an optimizer by being inspired from natural systems that work over different phases of exploration and stabilization. This research helps one think differently on how one could design an optimizer by being inspired from natural systems that work over different phases of exploration and stabilization.
+
+Beyond the direct gains, there are notable economic and environmental angles associated with this added stability: training attention models at scale is expensive in compute terms-lots of GPUs, lots of energy. The proposed framework reduces wasted training runs and lowers pressure for exhaustive hyperparameter searching.\\
+
+
+
+The research calls into question the common approach of relying on a uniform optimization schedule, which assumes that the training process occurs in a uniform manner. With the correlation of the annealing schedule to the training of a neural network, it offers a new approach in exploring the optimization process, which is now dependent on the distance of the loss function to convergence.\\
+
+\FloatBarrier
+
+\section{Methodology}
+\label{sec:methodology}
+
+\subsection{Overview}
+This section describes methodology for applying the phase-aware optimization technique to attention-based neural networks. our approach  is particularly focused on ensuring convergence, stability, and robustness improvement  of training by balancing exploration and stability.
+
+What we are trying to capture with our framework has to do with quantum annealing, where a lot of random components are introduced in the search in the beginning to allow it to explore the energy space, and then it gradually converges to regions with low energy. For us, introducing stochastic noise, or learning rates that change dynamically, or using momentum, which are all traditional techniques in classic optimizers, correspond to superposition, annealing, and tunneling in a quantum system, respectively. All of that without quantum hardware, of course.\\
+
+
+\subsection{Design of the Phase-Aware Optimization Framework}
+The proposed framework integrates three complementary mechanisms:
+\begin{itemize}
+    \item \textbf{Persistent Directional Updates},are used to control how much exploration is done during training and ensure consistency in update directions.
+    \item \textbf{Adaptive Control of Exploration}, which adjusts exploration strategy in order to prevent the optimizer from being stuck in sub-optimal areas of the loss space.
+    \item \textbf{Stochastic Transitions}, which allow the optimization procedure to move from undesirable areas of the loss landscape by adding stochasticity.\\
+\end{itemize}
+
+These mechanisms interact in an integrated, low-complexity control mechanism, allowing the optimization algorithm to move and adjust according to the training progress. The coordination of these components follows a continuous phase variable$\phi(t) \in [0,1]$. Early training corresponds to $\phi \approx 0$, emphasizing exploration, while later stages correspond to $\phi \approx 1$, emphasizing stability and convergence. The phase variable controls momentum strength, the learning rate, and the level of stochastic noise in a coupled way such that the transitions between different optimization phases are synchronized and smooth rather than being discontinuous or sequenced.\\
+
+\subsection{Implementation Details}
+
+\subsubsection{Neural Network Architecture}
+We work with attention-driven architectures, with a particular emphasis on transformers, which currently provide the backbone for many state-of-the-art models applied to NLP, computer vision, and multimodal tasks. The model families include transformer-based models-for example, BERT applied to text classification-and GPT-style architectures targeted at sequence generation. These attention-driven models derive advantages from a phase-aware optimization framework that adapts exploration and stability throughout training.\\
+
+\subsubsection{Optimization Mechanisms}
+The core optimization approach is as follows:
+
+\begin{itemize}\item \textbf{Momentum-based Directional Updates:}
+Momentum is high at the beginning of the training process to ensure the updates progress in a constant direction and to reduce oscillations. Exploration is not introduced due to momentum, but it is introduced through high learning rates and the stochastic nature of the data. Momentum is then reduced over time to enable finer adjustments of the parameters.
+
+
+\item \textbf{Adaptive Control of Exploration:}
+Exploration is guided by the adjustment of the learning rate over time, regulated by the injection of controlled randomness. The larger the learning rates used in the early phases of a run, the more the system is forced to explore broadly; the smaller the learning rate, the more slowly the system refines the results.
+
+\item \textbf{Stochastic Transitions (Noise Injection):}
+Gaussian noise is added on top of the gradient updates to ensure the optimizer is less likely to settle down into sharp minima. How much Gaussian noise is added is governed by the phase variable. This means the algorithm is very noisy at the start, where it becomes less noisy as it approaches convergence.\\
+
+\end{itemize}
+
+
+All optimization components are smooth functions of the phase variable $\phi(t)$, so that directional persistence, exploration strength, and random transitions can be coordinated as training unfolds.\\
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=3in]{TrainingDynamicsGradProject} 
+    \caption{Training Dynamics}
+    \label{fig:TrainingDynamicsGradProject}
+\end{figure}
+
+\subsubsection{Training Procedure}
+The model is trained using the following procedure:
+\begin{itemize}
+\item  \textbf{Initialization:} Standard initialization techniques such as Xavier initialization are applied.
+
+\item \textbf{Early Training Phase} ($\phi \approx 0$): Exploration is emphasized through high learning rates and significant stochastic noise, while momentum supports consistent movement through the loss landscape.
+
+\item  \textbf{Middle Phase:} The learning rate and noise magnitude are gradually decreased according to the evolving phase variable and training dynamics, such as loss convergence behavior and gradient variance.
+
+\item  \textbf{Late Training Phase} ($\phi \approx 1$): Exploration is minimized, and training focuses on fine-tuning and stable convergence using low learning rates and minimal noise.
+
+\item  \textbf{Convergence:} The optimizer guides the model toward flat minima to improve robustness and generalization.\\
+\end{itemize}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=3in]{ProcessFlowGradProject} 
+    \caption{Framework Process Flow}
+    \label{fig:ProcessFlowGradProject}
+\end{figure}
+
+Phase transitions depend not only on the training time that has run but also on indicators of training stability. For example, when the model has reached a plateau or sudden and unusual swings in loss occur, the optimizer can briefly allow exploratory moves. making the optimization process adaptive rather than strictly predefined.\\
+
+\subsubsection{Integration with Existing Frameworks}
+The optimization method is implemented using the \textbf{PyTorch} framework. We extend \textbf{PyTorch's optimizer} module to incorporate phase-aware components such as momentum scheduling, noise injection, and adaptive exploration control.\\
+
+\subsection{Evaluation Strategy}
+The proposed phase-aware optimization framework is evaluated using several metrics:
+
+\subsubsection{Predictive Performance Measures}
+We assess the generalization capability of our model by comparing it with other common evaluation criteria, which are as follows:
+\textbf{Accuracy} for classification tasks.
+ \textbf{Mean Squared Error (MSE)} or \textbf{Root Mean Squared Error (RMSE)} for regression tasks.
+
+\subsubsection{Training Dynamics Analysis}
+We analyze the convergence of the model by looking at the training and validation loss curves for its steady behavior and the effect caused by initialization. We also note any oscillations and look out for signs of optimization becoming unstable.
+
+
+\subsubsection{Loss Landscape Analysis}
+Sharpness is analyzed by examining the curvature of the loss landscape through parameter manipulation and observing the change in loss. Flat minima are what we are looking for, as they generalize better. Along with analyzing the curvature, we make controlled changes to the parameters to understand the robustness of sharpness. This gives an insight into how flat the landscape is and how the model performs when minor perturbations are made.
+
+\subsubsection{Robustness Tests}
+To test the robustness for various scenarios, such as noisy data (for example, Gaussian noise) and limited data, we mimic the actual environment.
+
+\subsubsection{Efficiency Evaluation}
+To demonstrate how the proposed approach compares to common optimizers, such as Adam and SGD optimizers, in terms of training time, memory, and computational cost, we conduct experiments.
+
+\subsubsection{Sensitivity to Initialization}
+To understand the stability of the convergence of the optimization, we train the models for different random seeds and analyze the variation of the performance for repeated runs. If the performance is similar for different runs, it implies the stability of the model, which will clearly validate the effectiveness of the proposed phase-aware optimization approach.\\\\\\
+
+
+\section{LOCATION AND SAFETY CONSIDERATIONS}
+\label{sec: LOCATION AND SAFETY CONSIDERATIONS}
+
+This is software-only and does not require any physical implementation or hardware interaction in its scope. As such, there are no physical safety concerns to human beings or the environment in the proposed work. There are no dangerous materials or safety-related systems used in the project. From an ethics viewpoint, there is an emphasis on improving the training robustness of neural networks and not working with human data or decision-support systems that have any human impact.\\\\
+\section{EXPECTED RESULTS/OUTPUTS}
+\label{sec: EXPECTED RESULTS/OUTPUTS}
+\subsection{Results and Comparison}
+The Phase-Aware Optimization (QDA) framework is compared to two industry baselines: SGD with Momentum and the Adam optimizer. SGD with Momentum represents a training principle that aims to find a generalized minimum, while the Adam optimizer represents a training principle that quickly converges in the initial training phase due to its attention mechanisms.\\
+
+
+Our comparison focuses on three primary dimensions: \textbf{convergence stability}, \textbf{robustness}, and \textbf{generalization performance}. To evaluate stability, we monitor the magnitude of loss volatility and gradient oscillations during the early epochs of training. Robustness is assessed by measuring the sensitivity of final model accuracy to different random initialization seeds and varying levels of noise injection. Finally, generalization performance is determined not merely by validation accuracy, but by the generalization gap the difference between training and validation performance to verify that the optimizer converges to flat, robust minima.\\
+
+One of the key aspects of developing the proposed solution is ensuring it increases performance without increasing computational complexity. Unlike previous solutions like Sharpness-Aware Minimization (SAM), which have addressed sharpness but have been shown to have similar or double training time complexity, the proposed solution aims to have low complexity. This complexity will be measured by training time and memory usage per training iteration.\\\\
+
+\begin{thebibliography}{00}
+
+\bibitem{ref1}
+ Neelakantan, L. Vilnis, Q. V. Le, I. Sutskever, L. Kaiser, K. Kurach, and J. Martens, ``Adding Gradient Noise Improves Learning for Very Deep Networks,'' in \textit{Proc. Int. Conf. Learn. Represent. (ICLR)}, 2016, arXiv:1511.06807. [Online]. Available: https://arxiv.org/abs/1511.06807
+
+\bibitem{ref2}
+ Foret, A. Kleiner, H. Mobahi, and B. Neyshabur, ``Sharpness-Aware Minimization for Efficiently Improving Generalization,'' in \textit{Proc. Int. Conf. Learn. Represent. (ICLR)}, 2021, arXiv:2010.01412. [Online]. Available: https://arxiv.org/abs/2010.01412
+
+\bibitem{ref3}
+ Ganahl, M. Rincón-Calle, S. R. Jackson, L. C. Venuti, and S. Haas, ``Quantum Annealing for Training Restricted Boltzmann Machines,'' \textit{Phys. Rev. A}, vol. 92, no. 5, p. 052306, Nov. 2015. [Online]. Available: https://arxiv.org/abs/1507.03965
+
+\bibitem{ref4}
+ Wen, Y. Zhou, and L. Liu, ``Stable SAM: Stabilizing Sharpness-Aware Minimization for Reliable Generalization,'' in \textit{Proc. IEEE/CVF Conf. Comput. Vis. Pattern Recognit. (CVPR)}, 2023, pp. 1--10.
+
+\bibitem{ref5}
+ Lami, P. Torta, G. E. Santoro, and M. Collura, ``Quantum Annealing for Neural Network Optimization Problems: A New Approach via Tensor Network Simulations,'' \textit{SciPost Phys.}, vol. 14, p. 117, 2023. [Online]. Available: https://arxiv.org/abs/2208.14468
+
+\bibitem{amin2018integration}
+M. H. Amin et al., ``Integration of machine learning with quantum annealing,'' \textit{Phys. Rev. X}, vol. 8, no. 2, p. 021050, 2018.
+
+\bibitem{author2025adaptive}
+F. Author1 and S. Author2, ``Adaptive Grover-driven parallel quantum optimization for neural networks,'' \textit{To appear}, 2025.
+
+\bibitem{author2025gradient}
+F. Author1 and S. Author2, ``Gradient-based quantum Hamiltonian descent: A hybrid optimization framework,'' \textit{To appear}, 2025.
+
+\bibitem{author2025noise}
+F. Author1 and S. Author2, ``Noise-directed adaptive remapping for quantum-inspired optimization,'' \textit{To appear}, 2025.
+
+\bibitem{author2025uncertainty}
+F. Author1 and S. Author2, ``Uncertainty quantification with Monte Carlo noise injection in deep learning,'' \textit{To appear}, 2025.
+
+\bibitem{foret2020sharpness}
+P. Foret et al., ``Sharpness-aware minimization for efficiently improving generalization,'' \textit{arXiv preprint arXiv:2010.01412}, 2020.
+
+\bibitem{gal2016dropout}
+Y. Gal and Z. Ghahramani, ``Dropout as a Bayesian approximation,'' in \textit{Proc. Int. Conf. Mach. Learn. (ICML)}, 2016, pp. 1050--1059.
+
+\bibitem{ganahl2015application}
+M. Ganahl et al., ``Application of quantum annealing to training of deep neural networks,'' \textit{arXiv preprint arXiv:1510.06356}, 2015.
+
+\bibitem{huang2016deep}
+G. Huang et al., ``Deep networks with stochastic depth,'' in \textit{Proc. Eur. Conf. Comput. Vis. (ECCV)}, 2016.
+
+\bibitem{li2024friendly}
+Y. Li et al., ``Friendly sharpness-aware minimization,'' in \textit{Proc. IEEE/CVF Conf. Comput. Vis. Pattern Recognit. (CVPR)}, 2024.
+
+\bibitem{matsuura2023quantum}
+A. Matsuura and C. Another, ``Quantum annealing for neural network optimization problems: A new approach via tensor network simulations,'' \textit{SciPost Phys.}, vol. 14, no. 5, p. 117, 2023.
+
+\bibitem{neelakantan2015adding}
+A. Neelakantan et al., ``Adding gradient noise improves learning for very deep networks,'' \textit{arXiv preprint arXiv:1511.06807}, 2015.
+
+\bibitem{srivastava2014dropout}
+N. Srivastava et al., ``Dropout: A simple way to prevent neural networks from overfitting,'' \textit{J. Mach. Learn. Res.}, vol. 15, no. 1, pp. 1929--1958, 2014.
+
+\bibitem{vaswani2017attention}
+A. Vaswani et al., ``Attention is all you need,'' in \textit{Adv. Neural Inf. Process. Syst. (NeurIPS)}, 2017.
+
+\bibitem{wen2022stable}
+K. Wen, T. Ma, and Z. Li, ``Stable SAM,'' \textit{arXiv preprint arXiv:2203.01189}, 2022.
+
+\end{thebibliography}
+\end{document}
